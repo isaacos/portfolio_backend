@@ -42,5 +42,7 @@ defmodule PortfolioBackendWeb.Endpoint do
     key: "_portfolio_backend_key",
     signing_salt: "7l5SRGOt"
 
+  plug CORSPlug
+
   plug PortfolioBackendWeb.Router
 end

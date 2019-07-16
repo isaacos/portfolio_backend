@@ -12,13 +12,16 @@ defmodule PortfolioBackendWeb.RecommendationController do
 
   end
 
-  def create(conn, %{"recommendation" => recommendation_params}) do
-    with {:ok, %Recommendation{} = recommendation} <- View.create_recommendation(recommendation_params) do
-      conn
-      |> put_status(:created)
-      |> put_resp_header("location", Routes.recommendation_path(conn, :show, recommendation))
-      |> render(recommendation)
-    end
+  def create(conn, params) do
+    # with {:ok, %Recommendation{} = recommendation} <- PortfolioBackend.create_recommendation(recommendation_params) do
+    #   conn
+    #   |> put_status(:created)
+    #   |> put_resp_header("location", Routes.recommendation_path(conn, :show, recommendation))
+    #   |> render( "show.json", recommendation: recommendation)
+    #   end
+        # recommendation = PortfolioBackend.Repo.insert!(%PortfolioBackend.View.Recommendation(params))
+        PortfolioBackend.View.create_recommendation(params)
+        json conn, params
   end
 
   def show(conn, %{"id" => id}) do
