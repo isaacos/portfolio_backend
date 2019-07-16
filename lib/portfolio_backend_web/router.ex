@@ -14,6 +14,7 @@ defmodule PortfolioBackendWeb.Router do
   scope "/", PortfolioBackendWeb do
     pipe_through :browser
     get "/recommendations", RecommendationController, :index
+    post "/recommendations", RecommendationController, :create
   end
 
   # Other scopes may use custom stacks.
@@ -21,5 +22,6 @@ defmodule PortfolioBackendWeb.Router do
      pipe_through :api
 
      get "/recommendations", RecommendationController, :index
+     post "/recommendations", RecommendationController, :create
    end
 end

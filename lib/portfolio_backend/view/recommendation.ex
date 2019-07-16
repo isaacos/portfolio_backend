@@ -9,9 +9,9 @@ defmodule PortfolioBackend.View.Recommendation do
   end
 
   @doc false
-  def changeset(recommendation, attrs) do
+  def changeset(recommendation, params) do
     recommendation
-    |> cast(attrs, [:text])
+    |> cast(params, [:text])
     |> validate_required([:text])
   end
 end
